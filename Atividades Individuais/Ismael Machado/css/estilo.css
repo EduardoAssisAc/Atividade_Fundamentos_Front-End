@@ -110,7 +110,7 @@ form.inativo {
     display: none;
 }
 
-a.botao#add.inativo {
+a.inativo#add {
     display: none;
 }
 
@@ -181,6 +181,10 @@ table tbody tr:hover {
 table tbody tr td:last-child {
     white-space: nowrap;
     width: 5%;
+}
+
+table td:nth-child(2) {
+    white-space: nowrap;
 }
 
 /* Rodapé */
