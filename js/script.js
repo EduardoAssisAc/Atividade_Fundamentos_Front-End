@@ -37,6 +37,13 @@ if (tema) {
     mudaTema(tema);
 }
 
+let totalRegistrosSpan = document.getElementById('total-registros');
+// Função para atualizar o numero no rodapé da pagina
+const atualizarRodape = () => {
+    let totalRegistros = tabela.tBodies[0].rows.length;
+    totalRegistrosSpan.textContent = totalRegistros;
+}
+
 //Função que carrega dados dos profissionais a partir de um objeto JSON
 const carregarConvenios = () => {
     let url = "https://my-json-server.typicode.com/juniorlimeiras/json/convenios";
@@ -47,6 +54,7 @@ const carregarConvenios = () => {
         for (const item of dados) {
             inserirConvenio(item);
         }
+        atualizarRodape();
         eventoExcluir();
     }).catch(erro => {
         console.error(erro);
@@ -102,6 +110,7 @@ const eventoExcluir = () => {
     for (const bt of botoes) {
         bt.addEventListener('click', () => {
             bt.parentNode.parentNode.remove();
+            atualizarRodape();
         });
     };
 };
@@ -173,4 +182,5 @@ const inserirConvenio = (item) => {
     linha.appendChild(telefone);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
+    eventoExcluir();
 };
