@@ -141,11 +141,11 @@ form.addEventListener('submit', (evento) => {
     evento.preventDefault(); //Evita que a página seja recarregada
     let profissional = { //Cria um objeto com os dados do form
         id: tabela.tBodies[0].rows.length + 1,
-        //ativo: form.ativo.value,
+        ativo: true,
         cnpj: form.cnpj.value,
         email: form.email.value,
         nome: form.nome.value,
-        razaosocial: form.rasaosocial.value,
+        razao_social: form.razao_social.value,
         representante: form.representante.value,
         telefone: form.telefone.value,
     };
@@ -195,4 +195,5 @@ const inserirConvenio = (item) => {
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
     eventoExcluir();
+    atualizarRodape();
 };
