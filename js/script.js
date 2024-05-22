@@ -114,6 +114,7 @@ const eventoExcluir = () => {
         bt.addEventListener('click', () => {
             bt.parentNode.parentNode.remove();
             atualizarRodape();
+            rodapeTabela.innerHTML = 'Total de registros: ' + tabela.tBodies[0].rows.length; //ATIVIDADE 3: Muda o número de registros de acordo com a quantidade de linhas da tabela
         });
     };
 };

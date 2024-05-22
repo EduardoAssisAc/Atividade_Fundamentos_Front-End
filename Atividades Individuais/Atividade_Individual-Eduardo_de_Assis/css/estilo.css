@@ -183,6 +183,13 @@ table tbody tr td:last-child {
     width: 5%;
 }
 
+//Atividade 4
+table tbody tr td:nth-child(2) {
+    white-space: nowrap;
+    width: 5%;
+}
+
+
 /* Rodapé */
 
 footer,
