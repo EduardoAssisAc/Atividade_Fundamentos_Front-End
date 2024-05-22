@@ -186,6 +186,10 @@ table tbody tr td:last-child {
     width: 5%;
 }
 
+table td:nth-child(6) {
+    white-space: nowrap;
+}
+
 /* Rodapé */
 
 footer,

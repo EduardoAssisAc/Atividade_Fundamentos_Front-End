@@ -162,6 +162,7 @@ const inserirConvenio = (item) => {
     let razao_social = document.createElement('td');
     let representante = document.createElement('td');
     let telefone = document.createElement('td');
+    let acoes = document.createElement('td');
     //Preencher os elementos
     id.textContent = item.id;
     ativo.textContent = item.ativo;
@@ -171,6 +172,7 @@ const inserirConvenio = (item) => {
     razao_social.textContent = item.razao_social;
     representante.textContent = item.representante;
     telefone.textContent = item.telefone;
+    acoes.innerHTML = `<a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao" href="javascript:void(0)">Excluir</a>`;
     //Preencher a linha
     linha.appendChild(id);
     linha.append(ativo);
@@ -180,6 +182,7 @@ const inserirConvenio = (item) => {
     linha.appendChild(razao_social);
     linha.appendChild(representante);
     linha.appendChild(telefone);
+    linha.appendChild(acoes);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
     eventoExcluir();
