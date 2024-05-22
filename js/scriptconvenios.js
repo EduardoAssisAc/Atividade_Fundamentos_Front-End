@@ -141,12 +141,13 @@ form.addEventListener('submit', (evento) => {
     evento.preventDefault(); //Evita que a página seja recarregada
     let profissional = { //Cria um objeto com os dados do form
         id: tabela.tBodies[0].rows.length + 1,
-        nome: form.nome.value,
-        registro: form.registro.value,
-        telefone: form.telefone.value,
+        //ativo: form.ativo.value,
+        cnpj: form.cnpj.value,
         email: form.email.value,
-        unidade: form.unidade.options[form.unidade.selectedIndex].label,
-        especialidade: form.especialidade.options[form.especialidade.selectedIndex].label
+        nome: form.nome.value,
+        razaosocial: form.rasaosocial.value,
+        representante: form.representante.value,
+        telefone: form.telefone.value,
     };
     //console.log(profissional);
     inserirConvenio(profissional); //insere o profissional na tabela
