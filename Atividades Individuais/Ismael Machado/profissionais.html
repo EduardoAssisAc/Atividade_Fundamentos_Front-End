@@ -35,14 +35,14 @@
     </header>
     <nav>
         <ul>
-            <li><a href="manutencao.html">Home</a></li>
-            <li><a href="manutencao.html">Pacientes</a></li>
-            <li><a href="manutencao.html">Atendimento</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pacientes.html">Pacientes</a></li>
+            <li><a href="atendimento.html">Atendimento</a></li>
             <li><a href="convenios.html">Convênios</a></li>
             <li><a href="profissionais.html">Profissionais</a></li>
-            <li><a href="manutencao.html">Unidades</a></li>
-            <li><a href="manutencao.html">Especialidades</a></li>
-            <li><a href="manutencao.html">Usuários</a></li>
+            <li><a href="unidades.html">Unidades</a></li>
+            <li><a href="especialidades.html">Especialidades</a></li>
+            <li><a href="usuarios.html">Usuários</a></li>
         </ul>
     </nav>
     <main>
@@ -82,40 +82,87 @@
                 <input type="button" value="Cancelar" id="vermelho">
             </div>
         </form>
-        <a class="botao" id="add">Adicionar</a>
+        <a class="botao inativo" id="add">Adicionar</a>
         <!--Tabela com um cabeçalho, 8 colunas e 5 linhas-->
         <!-- Emmet: table>thead+tbody+tfoot -->
         <table>
             <thead>
                 <!--  Emmet: tr>td*8-->
                 <tr>
-                    <!-- EX:
-                    "id": 1,
-                    "ativo": true,
-                    "cnpj": "46.560.030/0001-53",
-                    "email": "contato@unimedriobranco.com.br",
-                    "nome": "Unimed",
-                    "razao_social": "Unimed Rio Branco Cooperativa de Trabalho Médico Ltda.",
-                    "representante": "Thayline Figueredo Vaz",
-                    "telefone": "(68) 3668-1546" -->
-
                     <td>ID</td>
-                    <td>Ativo</td>
-                    <td>CNPJ</td>
-                    <td>Email</td>
                     <td>Nome</td>
-                    <td>Razão Social</td>
-                    <td>Representante</td>
+                    <td>Conselho</td>
+                    <td>Email</td>
                     <td>Telefone</td>
+                    <td>Unidade</td>
+                    <td>Especialidade</td>
                     <td>Ações</td>
                 </tr>
             </thead>
             <tbody>
-                
+                <!--tr*5>td{$}+td{x}*6+td{Editar | Excluir}-->
+                <!-- Emmet: tr*5>td{$}+td{x}*6+td>a[href="javascript:void(0)"]{Editar}+{ | }+a[href="javascript:void(0)"]{Excluir}-->
+                <!-- <tr>
+                    <td>1</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td><a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
+                            href="javascript:void(0)">Excluir</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td><a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
+                            href="javascript:void(0)">Excluir</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td><a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
+                            href="javascript:void(0)">Excluir</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td><a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
+                            href="javascript:void(0)">Excluir</a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td><a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
+                            href="javascript:void(0)">Excluir</a></td>
+                </tr> -->
+
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="9">Total de registros: <span id="total-registros">0</span></td>
+                    <td colspan="8" id="total"></td>
                 </tr>
             </tfoot>
         </table>

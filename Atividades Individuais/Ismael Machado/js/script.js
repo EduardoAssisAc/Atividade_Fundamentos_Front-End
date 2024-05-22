@@ -37,28 +37,22 @@ if (tema) {
     mudaTema(tema);
 }
 
-let totalRegistrosSpan = document.getElementById('total-registros');
-// Função para atualizar o numero no rodapé da pagina
-const atualizarRodape = () => {
-    let totalRegistros = tabela.tBodies[0].rows.length;
-    totalRegistrosSpan.textContent = totalRegistros;
-}
-
 //Função que carrega dados dos profissionais a partir de um objeto JSON
-const carregarConvenios = () => {
-    let url = "https://my-json-server.typicode.com/juniorlimeiras/json/convenios";
+const carregarProfissionais = () => {
+    let url = "https://my-json-server.typicode.com/juniorlimeiras/json/profissionais";
     let tabela = document.querySelector('table');
     fetch(url).then(resposta => {
         return resposta.json();
     }).then(dados => {
         for (const item of dados) {
-            inserirConvenio(item);
+            inserirProfissional(item);
         }
-        atualizarRodape();
         eventoExcluir();
     }).catch(erro => {
         console.error(erro);
     });
+
+
     /* let xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.addEventListener('readystatechange', () => {
@@ -102,10 +96,7 @@ const carregarConvenios = () => {
     });
     xhr.send(); */
 };
-carregarConvenios();
-
-let rodapeTabela = document.querySelector('td.rodape');
-let tabela = document.querySelector('table');
+carregarProfissionais();
 
 //Função para excluir um profissional
 const eventoExcluir = () => {
@@ -113,29 +104,28 @@ const eventoExcluir = () => {
     for (const bt of botoes) {
         bt.addEventListener('click', () => {
             bt.parentNode.parentNode.remove();
-            atualizarRodape();
         });
     };
 };
 
-let botaoAdicionar = document.querySelector('a.botao#add');
+let botaoAdicionar = document.querySelector('a.botao#add.inativo');
 let form = document.querySelector('form');
 let botaoCancelar = document.querySelector('input#vermelho');
 
 //Adiciona o evento de click ao botao Adicionar
 botaoAdicionar.addEventListener('click', () => {
     form.classList.remove('inativo');
-    botaoAdicionar.classList.replace('botao','botao-inativo')  //ATIVIDADE 2: Muda o botão adicionar para inativo quando abrir o formulário
-
+    botaoAdicionar.classLis.add('inativo');
 });
 
 //Adiciona o evento de click ao botao Cancelar
 botaoCancelar.addEventListener('click', () => {
     form.classList.add('inativo');
+    botaoAdicionar.classList.remove('inativo');
     form.reset();
-    botaoAdicionar.classList.replace('botao-inativo','botao') //ATIVIDADE 2: Muda o botão adicionar para ativo quando cancela o formulário
 })
 
+let tabela = document.querySelector('table');
 //Adicionar um funcionamento para enviar os dados do form para a tabela
 form.addEventListener('submit', (evento) => {
     evento.preventDefault(); //Evita que a página seja recarregada
@@ -149,49 +139,42 @@ form.addEventListener('submit', (evento) => {
         especialidade: form.especialidade.options[form.especialidade.selectedIndex].label
     };
     //console.log(profissional);
-    inserirConvenio(profissional); //insere o profissional na tabela
+    inserirProfissional(profissional); //insere o profissional na tabela
     form.reset(); //Limpa os campos do form
-    botaoAdicionar.classList.replace('botao-inativo','botao')  //ATIVIDADE 2: Muda o botão adicionar para ativo quando cancela o formulário
     form.classList.add('inativo'); //Esconde o form
     eventoExcluir(); //Adiciona o evento de excluir ao botao criado ao inserir nova linha na tabela
-    rodapeTabela.innerHTML = 'Total de registros: ' + tabela.tBodies[0].rows.length; //ATIVIDADE 3: Muda o número de registros de acordo com a quantidade de linhas da tabela.
-
 });
 
 //Função que insere um objeto profissional na tabela HTML
-const inserirConvenio = (item) => {
+const inserirProfissional = (item) => {
     //Criando os elementos HTML
     let linha = document.createElement('tr');
     let id = document.createElement('td');
-    let ativo = document.createElement('td');
-    let cnpj = document.createElement('td');
-    let email = document.createElement('td');
     let nome = document.createElement('td');
-    let razao_social = document.createElement('td');
-    let representante = document.createElement('td');
+    let registro = document.createElement('td');
     let telefone = document.createElement('td');
+    let email = document.createElement('td');
+    let unidade = document.createElement('td');
+    let especialidade = document.createElement('td');
     let acoes = document.createElement('td');
     //Preencher os elementos
     id.textContent = item.id;
-    ativo.textContent = item.ativo;
-    cnpj.textContent = item.cnpj;
-    email.textContent = item.email;
     nome.textContent = item.nome;
-    razao_social.textContent = item.razao_social;
-    representante.textContent = item.representante;
+    registro.textContent = item.registro;
     telefone.textContent = item.telefone;
-    acoes.innerHTML = `<a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao" href="javascript:void(0)">Excluir</a>`;
+    email.textContent = item.email;
+    unidade.textContent = item.unidade;
+    especialidade.textContent = item.especialidade;
+    acoes.innerHTML = `<a class="botao">Editar</a> <a id="vermelho" class="botao">Excluir</a>`;
     //Preencher a linha
     linha.appendChild(id);
-    linha.append(ativo);
-    linha.appendChild(cnpj);
+    linha.append(nome);
+    linha.appendChild(registro);
     linha.appendChild(email);
-    linha.appendChild(nome);
-    linha.appendChild(razao_social);
-    linha.appendChild(representante);
     linha.appendChild(telefone);
+    linha.appendChild(unidade);
+    linha.appendChild(especialidade);
     linha.appendChild(acoes);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
-    eventoExcluir();
 };
