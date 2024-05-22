@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convenios</title>
-    <link rel="stylesheet" type="text/css" href="/css/estilo.css">
-    <link rel="stylesheet" type="text/css" href="/css/estilo-tema-azul.css" id="link-tema">
-    <script src="/js/scriptconvenios.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./css/estilo.css">
+    <link rel="stylesheet" type="text/css" href="./css/estilo-tema-azul.css" id="link-tema">
+    <script src="./js/scriptconvenios.js" defer></script>
 </head>
 
 <body>
@@ -48,35 +48,25 @@
     <main>
         <form action="" class="inativo">
             <div class="grid">
-                <label for="nomeProfissional">Nome</label>
-                <input type="text" name="nome" id="nomeProfissional" required>
-                <!-- <br> -->
-                <label for="registroConselho">Registro Conselho</label>
-                <input type="text" name="registro" id="registroConselho" required>
-                <!-- <br> -->
-                <label for="telefone">Telefone</label>
-                <input type="tel" name="telefone" id="telefone" required>
+                <label for="cnpj">CNPJ</label>
+                <input type="text" name="nome" id="cnpj" required>
                 <!-- <br> -->
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" required>
+                <input type="text" name="registro" id="email" required>
                 <!-- <br> -->
-                <label for="unidade">Unidade</label>
-                <select name="unidade" id="unidade" required>
-                    <option value=""></option>
-                    <option value="1">Pronto Atendimento</option>
-                    <option value="2">Exames Laboratoriais</option>
-                    <option value="3">UTI</option>
-                </select>
+                <label for="nome">Nome</label>
+                <input type="tel" name="telefone" id="nome" required>
                 <!-- <br> -->
-                <label for="especialidade">Especialidade</label>
-                <select name="especialidade" id="especialidade" required>
-                    <option value=""></option>
-                    <option value="1">Cardiologia</option>
-                    <option value="2">Urologia</option>
-                    <option value="3">Neurologia</option>
-                </select>
+                <label for="razaosocial">Razao Social</label>
+                <input type="email" name="email" id="razaosocial" required>
                 <!-- <br> -->
+                <label for="representante">Representante</label>
+                <input type="email" name="email" id="representatne" required>
+                <!-- <br> -->
+                <label for="telefone">Telefone</label>
+                <input type="email" name="email" id="telefone" required>
                 <span></span>
+                <!-- <br> -->
                 <input type="submit" value="Enviar">
                 <span></span>
                 <input type="button" value="Cancelar" id="vermelho">
