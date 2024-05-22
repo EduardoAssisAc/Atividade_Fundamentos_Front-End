@@ -40,6 +40,10 @@ main div.manutencao {
 }
 
 /* Links e Botões */
+a.botao-inativo {
+    display: none;
+}
+
 a.botao,
 input[type="submit"],
 input[type="button"] {
