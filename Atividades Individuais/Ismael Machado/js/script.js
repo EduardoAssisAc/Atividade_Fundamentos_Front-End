@@ -51,8 +51,6 @@ const carregarProfissionais = () => {
     }).catch(erro => {
         console.error(erro);
     });
-
-
     /* let xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.addEventListener('readystatechange', () => {
@@ -104,24 +102,27 @@ const eventoExcluir = () => {
     for (const bt of botoes) {
         bt.addEventListener('click', () => {
             bt.parentNode.parentNode.remove();
+            contadorRopade();
         });
+       
     };
+    
 };
 
-let botaoAdicionar = document.querySelector('a.botao#add.inativo');
+let botaoAdicionar = document.querySelector('a.botao#add');
 let form = document.querySelector('form');
 let botaoCancelar = document.querySelector('input#vermelho');
 
 //Adiciona o evento de click ao botao Adicionar
 botaoAdicionar.addEventListener('click', () => {
     form.classList.remove('inativo');
-    botaoAdicionar.classLis.add('inativo');
+    botaoAdicionar.classList.replace('botao', 'inativo');
 });
 
 //Adiciona o evento de click ao botao Cancelar
 botaoCancelar.addEventListener('click', () => {
     form.classList.add('inativo');
-    botaoAdicionar.classList.remove('inativo');
+    botaoAdicionar.classList.replace('inativo', 'botao');
     form.reset();
 })
 
@@ -143,6 +144,8 @@ form.addEventListener('submit', (evento) => {
     form.reset(); //Limpa os campos do form
     form.classList.add('inativo'); //Esconde o form
     eventoExcluir(); //Adiciona o evento de excluir ao botao criado ao inserir nova linha na tabela
+
+    botaoAdicionar.classList.replace('inativo', 'botao');
 });
 
 //Função que insere um objeto profissional na tabela HTML
@@ -177,4 +180,13 @@ const inserirProfissional = (item) => {
     linha.appendChild(acoes);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
+    contadorRopade();
 };
+
+
+let total = document.querySelector('td.total');
+const contadorRopade = () => {
+    let count = tabela.tBodies[0].rows.length;
+    console.log(count);
+    total.innerHTML = "Total de registros: " + count;
+}
