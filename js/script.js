@@ -95,6 +95,9 @@ const carregarProfissionais = () => {
     xhr.send(); */
 };
 
+let rodapeTabela = document.querySelector('td.rodape');
+let tabela = document.querySelector('table');
+
 carregarProfissionais();
 
 //Função para excluir um profissional
@@ -103,6 +106,7 @@ const eventoExcluir = () => {
     for (const bt of botoes) {
         bt.addEventListener('click', () => {
             bt.parentNode.parentNode.remove();
+            rodapeTabela.innerHTML = 'Total de registros: ' + tabela.tBodies[0].rows.length; //ATIVIDADE 3: Muda o número de registros de acordo com a quantidade de linhas da tabela.
         });
     };
 };
@@ -114,15 +118,17 @@ let botaoCancelar = document.querySelector('input#vermelho');
 //Adiciona o evento de click ao botao Adicionar
 botaoAdicionar.addEventListener('click', () => {
     form.classList.remove('inativo');
+    botaoAdicionar.classList.replace('botao','botao-inativo')  //Muda o botão adicionar para inativo quando abrir o formulário
 });
 
 //Adiciona o evento de click ao botao Cancelar
 botaoCancelar.addEventListener('click', () => {
     form.classList.add('inativo');
     form.reset();
+    botaoAdicionar.classList.replace('botao-inativo','botao') //ATIVIDADE 2: Muda o botão adicionar para ativo quando cancela o formulário
 })
 
-let tabela = document.querySelector('table');
+
 //Adicionar um funcionamento para enviar os dados do form para a tabela
 form.addEventListener('submit', (evento) => {
     evento.preventDefault(); //Evita que a página seja recarregada
@@ -140,6 +146,8 @@ form.addEventListener('submit', (evento) => {
     form.reset(); //Limpa os campos do form
     form.classList.add('inativo'); //Esconde o form
     eventoExcluir(); //Adiciona o evento de excluir ao botao criado ao inserir nova linha na tabela
+    botaoAdicionar.classList.replace('botao-inativo','botao') //ATIVIDADE 2: Muda o botão adicionar para ativo quando cancela o formulário
+    rodapeTabela.innerHTML = 'Total de registros: ' + tabela.tBodies[0].rows.length; //ATIVIDADE 3: Muda o número de registros de acordo com a quantidade de linhas da tabela.
 });
 
 //Função que insere um objeto profissional na tabela HTML
