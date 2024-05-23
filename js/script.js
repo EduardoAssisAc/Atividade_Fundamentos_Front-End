@@ -102,6 +102,7 @@ const eventoExcluir = () => {
     for (const bt of botoes) {
         bt.addEventListener('click', () => {
             bt.parentNode.parentNode.remove();
+            
         });
     };
 };
@@ -121,6 +122,7 @@ botaoCancelar.addEventListener('click', () => {
     form.reset();
 })
 
+
 let tabela = document.querySelector('table');
 //Adicionar um funcionamento para enviar os dados do form para a tabela
 form.addEventListener('submit', (evento) => {
@@ -139,6 +141,7 @@ form.addEventListener('submit', (evento) => {
     form.reset(); //Limpa os campos do form
     form.classList.add('inativo'); //Esconde o form
     eventoExcluir(); //Adiciona o evento de excluir ao botao criado ao inserir nova linha na tabela
+    
 });
 
 //Função que insere um objeto profissional na tabela HTML
@@ -173,4 +176,6 @@ const inserirProfissional = (item) => {
     linha.appendChild(acoes);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
+    
 };
+

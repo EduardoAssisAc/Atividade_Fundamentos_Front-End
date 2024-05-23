@@ -192,9 +192,9 @@ table tbody tr td:last-child {
     width: 5%;
 }
 
-table td:nth-child(6) {
+/* table td:nth-child(2) {
     white-space: nowrap;
-}
+} */
 
 /* Rodapé */
 
