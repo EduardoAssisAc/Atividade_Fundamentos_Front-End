@@ -1,0 +1,41 @@
+* {
+    /* Universal */
+    color: red;
+}
+
+a {
+    /* Tag */
+    color: blueviolet;
+}
+
+a,
+p {
+    /* Agrupamento */
+    font-weight: bold;
+}
+
+.link_class_blue {
+    /* Classe */
+    color: blue;
+}
+
+#link_id_size {
+    /* ID */
+    font-size: 30px;
+}
+
+a[href="http://www.google.com"] {
+    background-color: pink;
+}
+
+p.p1 {
+    color: black;
+}
+
+p span {
+    font-style: italic;
+}
+
+p+h1 {
+    font-size: 72px;
+}
