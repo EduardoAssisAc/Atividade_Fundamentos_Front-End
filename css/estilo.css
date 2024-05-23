@@ -159,6 +159,12 @@ select:invalid {
 }
 
 /* Tabela */
+#container_tabela {
+    width: 95%;
+    overflow-x: auto;
+    margin: auto;
+}
+
 table {
     width: 99%;
     text-align: center;

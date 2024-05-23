@@ -26,7 +26,7 @@ selectTema.addEventListener('change', evento => {
 const mudaTema = (temaSelecionado) => {
     let linkTema = document.querySelector('#link-tema');
     //console.log(linkTema);
-    let url = "/css/estilo-tema-" + temaSelecionado + ".css";
+    let url = "./css/estilo-tema-" + temaSelecionado + ".css";
     linkTema.href = url;
 }
 
@@ -36,6 +36,12 @@ let tema = localStorage.getItem('tema');
 if (tema) {
     mudaTema(tema);
 }
+let totalRegistrosSpan = document.getElementById('total-registros');
+const atualizarRodape = () => {
+    let totalRegistros = tabela.tBodies[0].rows.length;
+    totalRegistrosSpan.textContent = totalRegistros;
+}
+
 
 //Função que carrega dados dos profissionais a partir de um objeto JSON
 const carregarProfissionais = () => {
@@ -47,6 +53,7 @@ const carregarProfissionais = () => {
         for (const item of dados) {
             inserirProfissional(item);
         }
+        //atualizarRodape();
         eventoExcluir();
     }).catch(erro => {
         console.error(erro);
@@ -102,6 +109,7 @@ const eventoExcluir = () => {
     for (const bt of botoes) {
         bt.addEventListener('click', () => {
             bt.parentNode.parentNode.remove();
+            atualizarRodape();
         });
     };
 };
@@ -173,4 +181,5 @@ const inserirProfissional = (item) => {
     linha.appendChild(acoes);
     //Preencher a tabela com uma linha
     tabela.tBodies[0].appendChild(linha);
+    atualizarRodape();
 };
