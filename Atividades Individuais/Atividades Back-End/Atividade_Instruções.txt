@@ -1,6 +1,8 @@
 // Questões da Atividade:
 
 /*
+
+ATIVIDADE 01 -----------------------------------------------------------------------------------------------------------------------------
 - Crie um array dinâmico de inteiros com o nome numeros, e valores 5, 2, 9, 7 e 1.
 
 - Imprima os elementos do array numeros utilizando um loop forou for-each.
@@ -18,4 +20,9 @@
 - Imprima na tela os elementos do array numeros em ordem decrescente.
 
 Não há apenas uma única forma de fazer isso. Pesquise sobre as soluções possíveis e escolha uma.
+
+ATIVIDADE 02 -----------------------------------------------------------------------------------------------------------------------------
+
+[INDIVIDUAL] Criar a classe UnidadeDao, de forma semelhante à classe EspecialideDao. Criar os métodos insert(), update() e delete() para a classe ProfissionalDao. (Entrega: 28/04/2024)
+
 */
