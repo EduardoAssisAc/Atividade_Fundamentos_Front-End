@@ -17,7 +17,7 @@ public class EspecialidadeDao {
 
     // Construtor
     public EspecialidadeDao(){
-        conexao = new ConexaoDB().getConexao();
+        conexao = ConexaoDB.getConexao();
     }
     
     // Retornar todas as Especialidade

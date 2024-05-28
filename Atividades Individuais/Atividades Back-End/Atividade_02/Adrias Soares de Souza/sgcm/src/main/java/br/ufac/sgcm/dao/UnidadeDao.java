@@ -1,6 +1,4 @@
-// Data Acess Object
-
-package main.java.br.ufac.sgcm.dao;
+package br.ufac.sgcm.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,81 +9,85 @@ import java.util.List;
 
 import br.ufac.sgcm.model.Unidade;
 
-public class UnidadeDao {
-    Connection conexao;
-    PreparedStatement ps;
-    ResultSet rs;
+public class UnidadeDao implements IDao<Unidade>{
 
-    // Construtor
+    private Connection conexao;
+    private PreparedStatement ps;
+    private ResultSet rs;
+
     public UnidadeDao(){
-        conexao = new ConexaoDB().getConexao();
+        conexao = ConexaoDB.getConexao();
     }
-    
-    // Retornar todas as Unidade
-    public List<Unidade> get(){
+
+    @Override
+    public List<Unidade> get() {
         List<Unidade> registros = new ArrayList<>();
-        String sql = "SELECT * FROM Unidade ORDER BY id";
+        String sql = "SELECT * FROM unidade";
         try{
             ps = conexao.prepareStatement(sql);
-            rs = ps.executeQuery();
-            while (rs.next()){
-                Unidade registro = new Unidade();
-                registro.setId(rs.getLong("id"));
-                registro.setNome(rs.getString("nome"));
-                registros.add(registro);
-            }
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
-        return registros;
-    }
-
-    // Retornar um objeto do tipo Especialiadae
-    public Unidade get(Long id){
-        Unidade registro = new Unidade();
-        String sql = "SELECT * FROM Unidade WHERE id = ?";
-
-        try {
-            ps = conexao.prepareStatement(sql);
-            ps.setLong(1, id);
-            rs= ps.executeQuery();  
-            if (rs.next()){
-                registro.setId(rs.getLong("id"));
-                registro.setNome(rs.getString("nome"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return registro;
-    }
-
-    // Retornar conforme um termo de busca
-    public List<Unidade> get(String termoBusca){
-        List<Unidade> registros = new ArrayList<>();
-        String sql = "SELECT * FROM Unidade WHERE nome LIKE ?";
-        try {
-            ps = conexao.prepareStatement(sql);
-            ps.setString(1, "%"+termoBusca+"%");
             rs = ps.executeQuery();
             while(rs.next()){
                 Unidade registro = new Unidade();
                 registro.setId(rs.getLong("id"));
                 registro.setNome(rs.getString("nome"));
+                registro.setEndereco(rs.getString("endereco"));
                 registros.add(registro);
             }
-        } catch (SQLException e) {
+        } catch(SQLException e) {
+           e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Unidade get(Long id) {
+        Unidade registro = new Unidade();
+        String sql = "SELECT * FROM unidade WHERE id = ?";
+        try{
+            ps = conexao.prepareStatement(sql);
+            ps.setLong(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                registro.setId(rs.getLong("id"));
+                registro.setNome(rs.getString("nome"));
+                registro.setEndereco(rs.getString("endereco"));
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return registro;
+    }
+
+    @Override
+    public List<Unidade> get(String termoBusca) {
+        List<Unidade> registros = new ArrayList<>();
+        String sql = "SELECT * FROM unidade WHERE nome LIKE ? OR endereco LIKE ?";
+        try{
+            ps = conexao.prepareStatement(sql);
+            ps.setString(1, "%"+termoBusca+"%");
+            ps.setString(2, "%"+termoBusca+"%");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Unidade registro = new Unidade();
+                registro.setId(rs.getLong("id"));
+                registro.setNome(rs.getString("nome"));
+                registro.setEndereco(rs.getString("endereco"));
+                registros.add(registro);
+            }
+        } catch(SQLException e){
             e.printStackTrace();
         }
         return registros;
     }
-    
-    // Inserir uma Unidade
-    public int insert(Unidade objeto){
+
+    @Override
+    public int insert(Unidade objeto) {
         int registrosAfetados = 0;
-        String sql = "INSERT INTO Unidade (nome) VALUES (?)";
+        String sql = "INSERT INTO unidade (nome, endereco) VALUES (?, ?)";
         try{
             ps = conexao.prepareStatement(sql);
             ps.setString(1, objeto.getNome());
+            ps.setString(2, objeto.getEndereco());
             registrosAfetados = ps.executeUpdate();
         } catch(SQLException e){
             e.printStackTrace();
@@ -93,35 +95,33 @@ public class UnidadeDao {
         return registrosAfetados;
     }
 
-    // Atualizar uma Unidade
-    public int update(Unidade objeto){
+    @Override
+    public int update(Unidade objeto) {
         int registrosAfetados = 0;
-        String sql = "UPDATE Unidade SET nome = ? WHERE id = ?";
-        try {
+        String sql = "UPDATE unidade SET nome = ?, endereco = ? "+"WHERE id = ?";
+        try{
             ps = conexao.prepareStatement(sql);
             ps.setString(1, objeto.getNome());
-            ps.setLong(2, objeto.getId());
+            ps.setString(2, objeto.getEndereco());
+            ps.setLong(3, objeto.getId());
             registrosAfetados = ps.executeUpdate();
-            
-        } catch (SQLException e) {
+        } catch(SQLException e){
             e.printStackTrace();
         }
         return registrosAfetados;
     }
 
-    // Excluir uma Unidade
-    public int delete(Unidade objeto){
+    @Override
+    public int delete(Unidade objeto) {
         int registrosAfetados = 0;
-        String sql = "DELETE FROM Unidade WHERE id = ?";
-
-        try {
+        String sql = "DELETE FROM unidade WHERE id = ?";
+        try{
             ps = conexao.prepareStatement(sql);
             ps.setLong(1, objeto.getId());
-            ps.executeUpdate();
-        } catch (SQLException e) {
+            registrosAfetados = ps.executeUpdate();
+        } catch(SQLException e){
             e.printStackTrace();
         }
-
         return registrosAfetados;
     }
 
