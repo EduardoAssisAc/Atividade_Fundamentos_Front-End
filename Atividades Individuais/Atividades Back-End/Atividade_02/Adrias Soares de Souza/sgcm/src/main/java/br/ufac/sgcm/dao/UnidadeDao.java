@@ -20,6 +20,22 @@ public class UnidadeDao implements IDao<Unidade>{
     }
 
     @Override
+    public int delete(Unidade objeto) {
+        int registrosAfetados = 0;
+        String sql = "DELETE FROM unidade WHERE id = ?";
+        try{
+            ps = conexao.prepareStatement(sql);
+            ps.setLong(1, objeto.getId());
+            registrosAfetados = ps.executeUpdate();
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        // TODO Auto-generated method stub
+        return registrosAfetados;
+    }
+
+    @Override
     public List<Unidade> get() {
         List<Unidade> registros = new ArrayList<>();
         String sql = "SELECT * FROM unidade";
@@ -104,20 +120,6 @@ public class UnidadeDao implements IDao<Unidade>{
             ps.setString(1, objeto.getNome());
             ps.setString(2, objeto.getEndereco());
             ps.setLong(3, objeto.getId());
-            registrosAfetados = ps.executeUpdate();
-        } catch(SQLException e){
-            e.printStackTrace();
-        }
-        return registrosAfetados;
-    }
-
-    @Override
-    public int delete(Unidade objeto) {
-        int registrosAfetados = 0;
-        String sql = "DELETE FROM unidade WHERE id = ?";
-        try{
-            ps = conexao.prepareStatement(sql);
-            ps.setLong(1, objeto.getId());
             registrosAfetados = ps.executeUpdate();
         } catch(SQLException e){
             e.printStackTrace();
