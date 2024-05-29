@@ -22,7 +22,16 @@ public class ProfissionalDao implements IDao<Profissional> {
     }
     @Override
     public int delete(Profissional objeto) {
-        return 0;
+        int registrosAfetados = 0;
+        String sql = "DELETE FROM profissional WHERE id = ?";
+        try {
+            ps = conexao.prepareStatement(sql);
+            ps.setLong(1, objeto.getId());
+            registrosAfetados = ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return registrosAfetados;
     }
     @Override
     public List<Profissional> get() {
