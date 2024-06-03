@@ -1,0 +1,28 @@
+[INDIVIDUAL] Criar uma página (login.jsp) com a funcionalidade de fazer o login do usuário (e todas as demais classes e métodos Java necessários) para redirecionar o mesmo para a página principal do SGCM (index.jsp) que contém apenas o cabeçalho, a navegação e o rodapé. (Entrega: 05/06/2024)
+
+[GRUPO] Construir páginas JSP (e todas as demais classes e métodos Java necessários) para cadastro de convênios, unidades, profissionais, pacientes e usuários, de forma semelhante à página de especialidades, e baseado na documentação do SGCM. (Entrega: 05/06/2024)
+
+Na classe que representa o paciente, os atributos grupo sanguíneo e sexo devem ser de um tipo abstrato construído com a utilização de Enums.
+
+Também deve ser usado Enum para o atributo papel do usuário, que deverá ter ao menos duas opções: ADMIN e ATENDENTE.
+
+Em relação ao cadastro de usuário, não é necessário implementar nenhum tipo de encriptação para senha. No entanto, no formulário deve ser utilizado o elemento HTML adequado ao tipo do campo.
+
+Página de Pacientes (Clécio, Maria Clara, Mayara, Samuel)
+
+Página de Profissionais (Eduardo, Carlos Eduardo, Adrias, Ismael)
+
+Página de Atendimentos (Samuel Alberto, Rafael, João Carlos, Luck)
+
+Página de Convênios (Luiz, Thalisson, Raurimar, Fabiana)
+
+Página de Unidades (Pablo, Daniela, Wennedy, Dimitris)
+
+Página de Usuários (Allan Victor, Adrian Porfiro, Pedro Soares, Ezequiel Ico, Samuel Feijó)
+
+IMPORTANTE:
+
+Todos os membros dos grupos devem participar das atividades, registrando esta participação por meio da identificação dos commits com seus respectivos usuários no GitHub.
+As atividades devem ser desenvolvidas utilizando o respectivo repositório do grupo no GitHub, e organizadas por disciplina.
+Quando se tratar de atividades inividuais, cada aluno deve criar uma subpasta com seu nome.
+Não utilizar nenhum framework ou biblioteca, pois o objetivo é explorar o recursos nativos das tecnologias abordadas na disciplina.
