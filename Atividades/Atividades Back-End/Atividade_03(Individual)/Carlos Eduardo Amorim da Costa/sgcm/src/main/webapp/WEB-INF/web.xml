@@ -32,7 +32,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/login</url-pattern>
+    <url-pattern>/loginservlet</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -41,7 +41,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>RegisterServlet</servlet-name>
-    <url-pattern>/register</url-pattern>
+    <url-pattern>/registerservlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

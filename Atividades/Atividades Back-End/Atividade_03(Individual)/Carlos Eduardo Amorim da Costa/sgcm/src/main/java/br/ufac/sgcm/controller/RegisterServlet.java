@@ -9,9 +9,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         String nome = request.getParameter("nome");
         String username = request.getParameter("username");

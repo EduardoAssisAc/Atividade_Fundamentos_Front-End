@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufac.sgcm.dao.UsuarioDao;
-import br.ufac.sgcm.model.Especialidade;
 import br.ufac.sgcm.model.Usuario;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

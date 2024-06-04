@@ -2,7 +2,6 @@ br\ufac\sgcm\controller\UsuarioController.class
 br\ufac\sgcm\dao\UsuarioDao.class
 br\ufac\sgcm\App.class
 br\ufac\sgcm\model\Especialidade.class
-LoginServlet.class
 br\ufac\sgcm\dao\ConexaoDB.class
 br\ufac\sgcm\model\Unidade.class
 br\ufac\sgcm\dao\EspecialidadeDao.class
@@ -13,6 +12,7 @@ br\ufac\sgcm\model\Profissional.class
 RegisterServlet.class
 br\ufac\sgcm\controller\EspecialidadeServlet.class
 br\ufac\sgcm\controller\IController.class
+br\ufac\sgcm\controller\LoginServlet.class
 br\ufac\sgcm\dao\IDao.class
 br\ufac\sgcm\model\Usuario.class
 br\ufac\sgcm\controller\UsuarioServlet.class
