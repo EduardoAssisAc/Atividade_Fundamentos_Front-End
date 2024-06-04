@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+  version="6.0">
+
+  <display-name>SGCM</display-name>
+  <description>Sistema de Gerenciamento de Clínica Médica</description>
+
+  <servlet>
+    <servlet-name>EspecialidadeServlet</servlet-name>
+    <servlet-class>br.ufac.sgcm.controller.EspecialidadeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EspecialidadeServlet</servlet-name>
+    <url-pattern>/especialidadeservlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>PrimeiroServlet</servlet-name>
+    <servlet-class>br.ufac.sgcm.PrimeiroServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PrimeiroServlet</servlet-name>
+    <url-pattern>/primeiroservlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>br.ufac.sgcm.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>br.ufac.sgcm.controller.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+
+</web-app>
