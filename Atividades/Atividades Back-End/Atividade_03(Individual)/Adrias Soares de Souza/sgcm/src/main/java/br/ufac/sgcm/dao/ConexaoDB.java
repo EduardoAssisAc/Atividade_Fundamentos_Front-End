@@ -13,7 +13,7 @@ public class ConexaoDB {
         try {
             String url = "jdbc:mysql://localhost/sgcm";
             String usuario = "root";
-            String senha = "ErR0r_4o4";
+            String senha = "root";
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, usuario, senha);
         } catch (ClassNotFoundException | SQLException e) {

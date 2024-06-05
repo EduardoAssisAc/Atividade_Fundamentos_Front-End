@@ -1,10 +1,11 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
-<%@ page import="br.ufac.sgcm.model.Especialidade" %>
+<%@ page import="br.ufac.sgcm.model.Especialidade"%>
 
-<jsp:useBean id="controller" class="br.ufac.sgcm.controller.EspecialidadeController" />
+<jsp:useBean id="controller" class="br.ufac.sgcm.controller.EspecialidadeController" scope="page"/> <!--Adicionei scope-->
 
-<%
+
+<% 
     List<Especialidade> registros = controller.processListRequest(request);
 %>
 
@@ -49,10 +50,15 @@
         </nav>
         <main>
             <div id="comandos">
-                <a href="especialidadesForm.jsp" class="botao" id="add">Adicionar</a>
+                <a href="especialidadesForm.jsp"
+                   class="botao"
+                   id="add">
+                    Adicionar
+                </a>
                 <div>
                     <label for="busca">Busca</label>
-                    <input type="search" name="busca" id="busca" placeholder="Digite para buscar">
+                    <input type="search" name="busca" id="busca"
+                           placeholder="Digite para buscar">
                 </div>
             </div>
             <table>
@@ -64,20 +70,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% for (Especialidade item : registros) { %>
+                    <% for (Especialidade item : registros){ %>
                     <tr>
-                        <td><%= item.getId() %></td>
+                        <td class="fit"><%= item.getId() %></td>
                         <td><%= item.getNome() %></td>
                         <td>
                             <a class="botao" href="especialidadesForm.jsp?id=<%= item.getId() %>">Editar</a>
-                            <a class="botao excluir" href="especialidadesForm.jsp?excluir=<%= item.getId() %>">Excluir</a>
+                            <a class="botao excluir" href="especialidades.jsp?excluir=<%= item.getId() %>">Excluir</a>
                         </td>
                     </tr>
                     <% } %>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="3">Total de registros: <%= registros.size() %></td>
+                        <td colspan="3">Total de registros: <%= registros.size()%></td>
                     </tr>
                 </tfoot>
             </table>

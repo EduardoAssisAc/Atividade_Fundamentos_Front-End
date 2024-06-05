@@ -103,3 +103,26 @@ A demonstração de uso das ferramentas e tecnologias abordadas na capacitação
 
 
 2. [INDIVIDUAL] Criar a classe `UnidadeDao`, de forma semelhante à classe `EspecialideDao`. Criar os métodos `insert()`, `update()` e `delete()` para a classe `ProfissionalDao`. (Entrega: 28/04/2024)
+
+3. [INDIVIDUAL] Criar uma página (login.jsp) com a funcionalidade de fazer o login do usuário (e todas as demais classes e métodos Java necessários) para redirecionar o mesmo para a página principal do SGCM (index.jsp) que contém apenas o cabeçalho, a navegação e o rodapé. (Entrega: 05/06/2024)
+
+4. [GRUPO] Construir páginas JSP (e todas as demais classes e métodos Java necessários) para cadastro de convênios, unidades, profissionais, pacientes e usuários, de forma semelhante à página de especialidades, e baseado na [documentação do SGCM](https://github.com/webacademyufac/sgcmdocs). (Entrega: 05/06/2024)
+
+    - Na classe que representa o paciente, os atributos `grupo sanguíneo` e `sexo` devem ser de um tipo abstrato construído com a utilização de [Enums](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html).
+    - Também deve ser usado [Enum](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html) para o atributo `papel` do usuário, que deverá ter ao menos duas opções: `ADMIN` e `ATENDENTE`.
+    - Em relação ao cadastro de usuário, não é necessário implementar nenhum tipo de encriptação para senha. No entanto, no formulário deve ser utilizado o elemento HTML adequado ao tipo do campo.
+
+    - Página de Pacientes (Clécio, Maria Clara, Mayara, Samuel)
+    - Página de Profissionais (Eduardo, Carlos Eduardo, Adrias, Ismael)
+    - Página de Atendimentos (Samuel Alberto, Rafael, João Carlos, Luck)
+    - Página de Convênios (Luiz, Thalisson, Raurimar, Fabiana)
+    - Página de Unidades (Pablo, Daniela, Wennedy, Dimitris)
+    - Página de Usuários (Allan Victor, Adrian Porfiro, Pedro Soares, Ezequiel Ico, Samuel Feijó)
+
+
+> **IMPORTANTE:**
+>
+> - _**Todos os membros dos grupos devem participar das atividades**_, registrando esta participação por meio da identificação dos commits com seus respectivos usuários no GitHub.
+> - As atividades devem ser desenvolvidas utilizando o respectivo repositório do grupo no GitHub, e _**organizadas por disciplina**_.
+> - Quando se tratar de atividades inividuais, _**cada aluno deve criar uma subpasta com seu nome**_.
+> - _**Não utilizar nenhum framework ou biblioteca**_, pois o objetivo é explorar o recursos nativos das tecnologias abordadas na disciplina.

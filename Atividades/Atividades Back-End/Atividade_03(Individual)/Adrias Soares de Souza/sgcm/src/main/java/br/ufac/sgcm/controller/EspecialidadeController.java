@@ -13,7 +13,7 @@ public class EspecialidadeController implements IController<Especialidade> {
 
     private EspecialidadeDao eDao;
 
-    public EspecialidadeController() { 
+    public EspecialidadeController() {
         eDao = new EspecialidadeDao();
     }
 
@@ -52,10 +52,11 @@ public class EspecialidadeController implements IController<Especialidade> {
     }
 
     // Metodos do Servlet
+    @Override
     public List<Especialidade> processListRequest(HttpServletRequest req) {
         List<Especialidade> registros = new ArrayList<>();
-        String paramExcluir = req.getParameter("vermelho");// excluir
-        if (paramExcluir != null) {
+        String paramExcluir = req.getParameter("excluir");
+        if (paramExcluir != null && !paramExcluir.isEmpty()) {
             Especialidade esp = new Especialidade();
             Long id = Long.parseLong(paramExcluir);
             esp = this.get(id);
@@ -65,27 +66,27 @@ public class EspecialidadeController implements IController<Especialidade> {
         return registros;
     }
 
-    public Especialidade processFormRequest(HttpServletRequest req, HttpServletResponse res){
-    
+    @Override
+    public Especialidade processFormRequest(HttpServletRequest req, HttpServletResponse res) {
         Especialidade item = new Especialidade();
         String submit = req.getParameter("submit");
         String paramId = req.getParameter("id");
-    
-        if (paramId != null && !paramId.isEmpty()){
+        if (paramId != null && !paramId.isEmpty()) {
             Long id = Long.parseLong(paramId);
-            item.setId(id);
+            item = this.get(id); // O item estava com setId, no update já existe o objeto no banco então o
+                                 // correto é usar o get() do Controller para preencher o item com id e nome
         }
-    
-        if (submit != null){
+        if (submit != null) {
             item.setNome(req.getParameter("nome"));
             this.save(item);
-        }
-    
-        try{
-            res.sendRedirect("especialidades.jsp");
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            try { // O try estava fora do if quando estiver adicionando
+                res.sendRedirect("especialidades.jsp");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return item;
     }
+
 }
