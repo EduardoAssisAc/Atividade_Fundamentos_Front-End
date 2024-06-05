@@ -22,7 +22,7 @@ public class UsuarioDao implements IDao<Usuario> {
     @Override
     public int delete(Usuario objeto) {
         int registrosAfetados = 0;
-        String sql = "DELETE FROM unidade WHERE id = ?";
+        String sql = "DELETE FROM usuario WHERE id = ?";
         try {
             ps = conexao.prepareStatement(sql);
             ps.setLong(1, objeto.getId());
@@ -36,7 +36,7 @@ public class UsuarioDao implements IDao<Usuario> {
     @Override
     public List<Usuario> get() {
         List<Usuario> registros = new ArrayList<>();
-        String sql = "SELECT * FROM unidade";
+        String sql = "SELECT * FROM usuario";
         try {
             ps = conexao.prepareStatement(sql);
             rs = ps.executeQuery();
