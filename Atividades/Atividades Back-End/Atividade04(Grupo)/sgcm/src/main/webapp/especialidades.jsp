@@ -19,6 +19,7 @@
         <script src="./js/script.js" defer></script>
         <script src="./js/especialidades.js" defer></script>
     </head>
+
     <body>
         <header>
             <div id="logo">
@@ -36,6 +37,7 @@
                 </select>
             </div>
         </header>
+        
         <nav>
             <ul>
                 <li><a href="index.jsp">Home</a></li>
