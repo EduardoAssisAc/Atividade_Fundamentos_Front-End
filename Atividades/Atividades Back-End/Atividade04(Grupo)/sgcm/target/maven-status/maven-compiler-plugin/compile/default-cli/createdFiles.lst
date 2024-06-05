@@ -14,4 +14,6 @@ br\ufac\sgcm\controller\IController.class
 br\ufac\sgcm\controller\LoginServlet.class
 br\ufac\sgcm\dao\IDao.class
 br\ufac\sgcm\model\Usuario.class
+br\ufac\sgcm\controller\ProfissionalController.class
+br\ufac\sgcm\controller\ProfissionalServlet.class
 br\ufac\sgcm\PrimeiroServlet.class

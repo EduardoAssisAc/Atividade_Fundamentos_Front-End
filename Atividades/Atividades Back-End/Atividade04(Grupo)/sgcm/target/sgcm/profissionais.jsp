@@ -1,7 +1,13 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ page import="br.ufac.sgcm.model.Profissional"%>
+<%@ page import="java.util.List" %>
+<%@ page import="br.ufac.sgcm.model.Profissional" %>
+<%@ page import="br.ufac.sgcm.controller.ProfissionalController" %>
 
 <jsp:useBean id="controller" class="br.ufac.sgcm.controller.ProfissionalController" scope="page"/>
+
+<% 
+    List<Profissional> registros = controller.processListRequest(request);
+%>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -35,8 +41,8 @@
                 </p>
             </div>
         </div>
+
     </header>
-    
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -93,82 +99,37 @@
         <div id="container_tabela">
             <table>
                 <thead>
-                    <!--  Emmet: tr>td*8-->
                     <tr>
-                        <td>ID</td>
-                        <td>Nome</td>
-                        <td>Conselho</td>
-                        <td>Email</td>
-                        <td>Telefone</td>
-                        <td>Unidade</td>
-                        <td>Especialidade</td>
-                        <td>Ações</td>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Registro Conselho</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Unidade</th>
+                        <th>Especialidade</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!--tr*5>td{$}+td{x}*6+td{Editar | Excluir}-->
-                    <!-- Emmet: tr*5>td{$}+td{x}*6+td>a[href="javascript:void(0)"]{Editar}+{ | }+a[href="javascript:void(0)"]{Excluir}-->
-                    <!-- <tr>
-                        <td>1</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td><a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
-                                href="javascript:void(0)">Excluir</a>
+                    <% for (Profissional profissional : registros){ %>
+                    <tr>
+                        <td><%= profissional.getId() %></td>
+                        <td><%= profissional.getNome() %></td>
+                        <td><%= profissional.getRegistro() %></td>
+                        <td><%= profissional.getEmail() %></td>
+                        <td><%= profissional.getTelefone() %></td>
+                        <td><%= profissional.getUnidade() %></td>
+                        <td><%= profissional.getEspecialidade() %></td>
+                        <td>
+                            <a class="botao" href="editarProfissional.jsp?id=<%= profissional.getId() %>">Editar</a>
+                            <a class="botao excluir" href="profissionais.jsp?excluir=<%= profissional.getId() %>">Excluir</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td><a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
-                                href="javascript:void(0)">Excluir</a></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td><a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
-                                href="javascript:void(0)">Excluir</a></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td><a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
-                                href="javascript:void(0)">Excluir</a></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td>x</td>
-                        <td><a class="botao" href="javascript:void(0)">Editar</a> <a id="vermelho" class="botao"
-                                href="javascript:void(0)">Excluir</a></td>
-                    </tr> -->
-
+                    <% } %>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="9">Total de registros: <span id="total-registros">0</span></td>
+                        <td colspan="8">Total de registros: <%= registros.size()%></td>
                     </tr>
                 </tfoot>
             </table>
