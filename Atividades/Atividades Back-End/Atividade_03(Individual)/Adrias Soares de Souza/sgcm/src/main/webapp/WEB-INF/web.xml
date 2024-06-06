@@ -8,6 +8,10 @@
   <display-name>SGCM</display-name>
   <description>Sistema de Gerenciamento de Clínica Médica</description>
 
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list> 
+
   <servlet>
     <servlet-name>Especialidade</servlet-name> <!--Alterei
     o nome, a classe e o url do Servlet-->
@@ -27,4 +31,14 @@
     <servlet-name>PrimeiroServlet</servlet-name>
     <url-pattern>/primeiroservlet</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>br.ufac.sgcm.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
