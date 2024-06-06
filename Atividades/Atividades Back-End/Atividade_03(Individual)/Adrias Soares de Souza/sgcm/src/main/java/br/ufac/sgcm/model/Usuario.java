@@ -1,6 +1,4 @@
-package br.ufac.sgcm.model;
-
-import java.io.Serializable;
+package main.java.br.ufac.sgcm.model;
 
 public class Usuario implements Serializable {
     private long id;
