@@ -1,4 +1,12 @@
-package main.java.br.ufac.sgcm.dao;
+package br.ufac.sgcm.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import br.ufac.sgcm.model.Usuario;
 
 public class UsuarioDao implements IDao<Usuario> {
     private Connection conexao;

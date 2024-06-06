@@ -1,3 +1,12 @@
+package br.ufac.sgcm.controller;
+
+import java.util.List;
+
+import br.ufac.sgcm.dao.UsuarioDao;
+import br.ufac.sgcm.model.Usuario;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 public class UsuarioController implements IController<Usuario> {
 
     private UsuarioDao eDao;

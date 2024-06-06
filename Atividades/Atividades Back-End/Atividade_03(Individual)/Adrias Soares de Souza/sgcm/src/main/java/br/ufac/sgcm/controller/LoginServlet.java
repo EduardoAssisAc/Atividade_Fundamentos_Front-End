@@ -1,4 +1,12 @@
-package main.java.br.ufac.sgcm.controller;
+package br.ufac.sgcm.controller;
+
+import java.io.IOException;
+
+import br.ufac.sgcm.dao.UsuarioDao;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public class LoginServlet extends HttpServlet{
     
